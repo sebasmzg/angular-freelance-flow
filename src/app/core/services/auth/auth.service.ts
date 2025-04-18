@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, map} from 'rxjs';
-import {AuthResponse, JwtUser} from '../models/user.model';
-import {parseJwt} from '../helpers/jwt-helper';
+import {AuthResponse, JwtUser} from '../../../shared/models/user.model';
+import {parseJwt} from '../../helpers/jwt-helper';
 import {Router} from '@angular/router';
+import {enviroment} from '../../../../enviroments/enviroment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:8000';
+  private readonly baseUrl = `${enviroment.apiUrl}/login`;
 
   constructor(private http: HttpClient, private router: Router) { }
 
   login(email: string, password: string): Observable<{ user: JwtUser }> {
-    return this.http.post<AuthResponse>(`${this.baseUrl}/login`, { email, password }).pipe(
+    return this.http.post<AuthResponse>(this.baseUrl, { email, password }).pipe(
       map((res)=>{
         this.saveToken(res.token);
         const payload = parseJwt(res.token);

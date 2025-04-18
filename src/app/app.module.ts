@@ -9,8 +9,10 @@ import {AuthModule} from './auth/auth.module';
 import {ProjectsModule} from './projects/projects.module';
 import {FilesModule} from './files/files.module';
 import {LayoutModule} from './layout/layout.module';
-import { HttpClientModule} from '@angular/common/http';
-import {AuthService} from './core/services/auth.service';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthService} from './core/services/auth/auth.service';
+import {ProjectsService} from './core/services/projects/projects.service';
+import {AuthInterceptor} from './core/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,13 @@ import {AuthService} from './core/services/auth.service';
     HttpClientModule
   ],
   providers: [
-    AuthService
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    AuthService,
+    ProjectsService
   ],
   bootstrap: [AppComponent]
 })

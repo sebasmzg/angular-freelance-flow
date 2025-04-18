@@ -7,7 +7,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-import {AuthComponent} from './auth.component';
+import {AuthComponent} from './pages/auth/auth.component';
 
 @NgModule({
   declarations: [

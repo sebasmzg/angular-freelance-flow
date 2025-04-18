@@ -1,4 +1,4 @@
-import {JwtUser} from '../models/user.model';
+import {JwtUser} from '../../shared/models/user.model';
 
 export function parseJwt(token: string) {
   try {
