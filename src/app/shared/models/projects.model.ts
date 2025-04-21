@@ -2,11 +2,11 @@ export interface ProjectResponse {
   id?: number,
   title: string,
   description: string,
-  startDate: Date,
-  deliveryDate: Date,
+  start_date: Date,
+  delivery_date: Date,
   state: Status,
   userId?: number,
-  createdAt: string,
+  created_at: Date,
 }
 
 export interface ProjectRequest {

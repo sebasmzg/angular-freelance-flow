@@ -1,1 +1,8 @@
-
+<div *ngIf="project">
+  <h2>{{ project.title }}</h2>
+  <p>{{ project.description }}</p>
+  <p>Start: {{ project.start_date | date:'yyyy-MM-dd' }}</p>
+  <p>Dead line: {{ project.delivery_date | date:'yyyy-MM-dd' }}</p>
+  <p>Status: {{ project.state }}</p>
+  <p>Created at: {{ project.created_at | date: 'yyyy-MM-dd' }}</p>
+</div>

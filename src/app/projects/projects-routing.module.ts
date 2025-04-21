@@ -10,7 +10,7 @@ const routes: Routes = [
   component: ProjectsComponent,
   children: [
     {path: 'list', component: ProjectsListComponent},
-    {path: 'detail/:id',component: ProjectsDetailComponent},
+    {path: ':id',component: ProjectsDetailComponent},
     {path: 'create', component: CreateProjectComponent},
     {path: '',
     redirectTo: 'list',
