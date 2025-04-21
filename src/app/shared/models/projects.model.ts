@@ -15,6 +15,7 @@ export interface ProjectRequest {
   startDate: Date,
   deliveryDate: Date,
   state: Status,
+  userId?: number
 }
 
 export enum Status {

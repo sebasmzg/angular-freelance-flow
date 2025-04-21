@@ -1,6 +1,6 @@
-import {JwtUser} from '../../shared/models/user.model';
+import {JwtUser, Token} from '../../shared/models/user.model';
 
-export function parseJwt(token: string) {
+export function parseJwt(token: string): Token | null {
   try {
     const base64Payload = token.split('.')[1];
     const payload = atob(base64Payload);

@@ -25,9 +25,10 @@ export class ProjectsService {
     const body = {
       title: project.title,
       description: project.description,
-      startDate: this.formatDate(project.startDate),
-      deliveryDate: this.formatDate(project.deliveryDate),
-      state: project.state
+      start_date: this.formatDate(project.startDate),
+      delivery_date: this.formatDate(project.deliveryDate),
+      state: project.state,
+      userId: project.userId
     }
     return this.http.post<string>(`${this.baseUrl}/create`, body);
   }

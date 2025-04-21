@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {ProjectsListComponent} from './pages/projects-list/projects-list.component';
 import {ProjectsDetailComponent} from './pages/projects-detail/projects-detail.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
+import {CreateProjectComponent} from "./pages/create-project/create-project.component";
 
 const routes: Routes = [
   {path: '',
@@ -10,6 +11,7 @@ const routes: Routes = [
   children: [
     {path: 'list', component: ProjectsListComponent},
     {path: 'detail/:id',component: ProjectsDetailComponent},
+    {path: 'create', component: CreateProjectComponent},
     {path: '',
     redirectTo: 'list',
     pathMatch: 'full'}

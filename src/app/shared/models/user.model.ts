@@ -9,3 +9,11 @@ export interface AuthResponse {
   token: string;
 }
 
+export interface Token {
+  iss:  string;
+  aud:  string;
+  iat:  number;
+  exp:  number;
+  user: JwtUser;
+}
+

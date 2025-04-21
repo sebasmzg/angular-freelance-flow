@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable, map} from 'rxjs';
-import {AuthResponse, JwtUser} from '../../../shared/models/user.model';
+import {AuthResponse, JwtUser, Token} from '../../../shared/models/user.model';
 import {parseJwt} from '../../helpers/jwt-helper';
 import {Router} from '@angular/router';
 import {enviroment} from '../../../../enviroments/enviroment';
@@ -20,7 +20,11 @@ export class AuthService {
       map((res)=>{
         this.saveToken(res.token);
         const payload = parseJwt(res.token);
-        return {user: payload?.user};
+        if(!payload?.user){
+          throw new Error('Invalid token user');
+        }
+        this.saveUserId(payload.user.id)
+        return {user: payload.user};
       })
     );
   }
@@ -33,12 +37,23 @@ export class AuthService {
     localStorage.setItem('token', token);
   }
 
+  private saveUserId(userId: number ){
+    return localStorage.setItem('userId', String(userId));
+  }
+
+  getUserIdFromToken(): string {
+    return localStorage.getItem('userId') || '';
+  }
+
   getToken():string {
     return localStorage.getItem('token') || '';
   }
 
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('userId');
     this.router.navigate(['/auth/login']);
   }
+
+  //todo : add userId to the token
 }
