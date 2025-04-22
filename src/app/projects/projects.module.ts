@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormField, MatInputModule, MatLabel } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import { UpdateProjectComponent } from './pages/update-project/update-project.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {MatSelectModule} from '@angular/material/select';
     ProjectsListComponent,
     ProjectsDetailComponent,
     ProjectsComponent,
-    CreateProjectComponent
+    CreateProjectComponent,
+    UpdateProjectComponent
   ],
   imports: [
     CommonModule,

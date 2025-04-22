@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ProjectsService} from '../../../core/services/projects/projects.service';
 import {ProjectResponse} from '../../../shared/models/projects.model';
+import {MatDialog} from '@angular/material/dialog';
+import {ConfirmDialogComponent} from '../../../shared/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-projects-detail',
@@ -14,7 +16,9 @@ export class ProjectsDetailComponent implements OnInit {
   project: ProjectResponse | null = null;
   constructor(
     private route: ActivatedRoute,
-    private projectsService: ProjectsService
+    private projectsService: ProjectsService,
+    private dialog: MatDialog,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -33,5 +37,17 @@ export class ProjectsDetailComponent implements OnInit {
         error: (error) => console.error('Error fetching project:', error),
       })
     }
+  }
+
+  openDeleteConfirmation(){
+    const dialogRef = this.dialog.open(ConfirmDialogComponent);
+
+    dialogRef.afterClosed().subscribe(res=>{
+      if(res && this.project?.id){
+        this.projectsService.deleteProject(this.project?.id).subscribe(()=>{
+          this.router.navigate(['/projects']);
+        })
+      }
+    })
   }
 }

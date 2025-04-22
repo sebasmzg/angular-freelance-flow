@@ -6,3 +6,11 @@
   <p>Status: {{ project.state }}</p>
   <p>Created at: {{ project.created_at | date: 'yyyy-MM-dd' }}</p>
 </div>
+<div style="margin-top: 2rem">
+  <button mat-raised-button color="primary" [routerLink]="['/projects', project?.id, 'update']">
+    Update
+  </button>
+  <button mat-raised-button color="warn" (click)="openDeleteConfirmation()">
+    Delete
+  </button>
+</div>
