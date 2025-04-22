@@ -15,10 +15,6 @@ const routes: Routes = [
         loadChildren: () => import('../projects/projects.module').then(m => m.ProjectsModule)
       },
       {
-        path: 'files',
-        loadChildren: () => import('../files/files.module').then(m => m.FilesModule)
-      },
-      {
         path: '',
         redirectTo: 'projects',
         pathMatch: 'full'

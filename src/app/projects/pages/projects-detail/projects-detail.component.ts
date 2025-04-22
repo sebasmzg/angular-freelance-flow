@@ -82,6 +82,4 @@ export class ProjectsDetailComponent implements OnInit {
       }
     });
   }
-
-  //todo create form to upload files
 }

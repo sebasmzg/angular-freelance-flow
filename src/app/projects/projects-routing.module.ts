@@ -5,6 +5,7 @@ import {ProjectsDetailComponent} from './pages/projects-detail/projects-detail.c
 import { ProjectsComponent } from './pages/projects/projects.component';
 import {CreateProjectComponent} from "./pages/create-project/create-project.component";
 import {UpdateProjectComponent} from './pages/update-project/update-project.component';
+import {UploadFileComponent} from './pages/upload-file/upload-file.component';
 
 const routes: Routes = [
   {path: '',
@@ -14,6 +15,7 @@ const routes: Routes = [
     {path: 'create', component: CreateProjectComponent},
     {path: ':id',component: ProjectsDetailComponent},
     {path: ':id/update', component: UpdateProjectComponent},
+    {path: ':id/files', component: UploadFileComponent},
     {path: '',
     redirectTo: 'list',
     pathMatch: 'full'}

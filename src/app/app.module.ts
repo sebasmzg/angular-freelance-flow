@@ -7,12 +7,12 @@ import {CoreModule} from './core/core.module';
 import {SharedModule} from './shared/shared.module';
 import {AuthModule} from './auth/auth.module';
 import {ProjectsModule} from './projects/projects.module';
-import {FilesModule} from './files/files.module';
 import {LayoutModule} from './layout/layout.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthService} from './core/services/auth/auth.service';
 import {ProjectsService} from './core/services/projects/projects.service';
 import {AuthInterceptor} from './core/interceptors/auth.interceptor';
+import { FilesService } from './core/services/files/files.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,6 @@ import {AuthInterceptor} from './core/interceptors/auth.interceptor';
     SharedModule,
     AuthModule,
     ProjectsModule,
-    FilesModule,
     LayoutModule,
     HttpClientModule
   ],
@@ -36,7 +35,8 @@ import {AuthInterceptor} from './core/interceptors/auth.interceptor';
       multi: true
     },
     AuthService,
-    ProjectsService
+    ProjectsService,
+    FilesService
   ],
   bootstrap: [AppComponent]
 })

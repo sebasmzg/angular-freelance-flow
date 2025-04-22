@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" style="padding: 2rem; max-width: 400px; margin: auto;">
+  <div>
+    <label for="fileInput">Select File</label>
+    <input id="fileInput" type="file" multiple (change)="onFileSelected($event)" required />
+  </div>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+    Upload File
+  </button>
+</form>

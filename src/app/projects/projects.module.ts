@@ -13,6 +13,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { UpdateProjectComponent } from './pages/update-project/update-project.component';
 import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
+import { UploadFileComponent } from './pages/upload-file/upload-file.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MatIconModule} from '@angular/material/icon';
     ProjectsDetailComponent,
     ProjectsComponent,
     CreateProjectComponent,
-    UpdateProjectComponent
+    UpdateProjectComponent,
+    UploadFileComponent
   ],
   imports: [
     CommonModule,
