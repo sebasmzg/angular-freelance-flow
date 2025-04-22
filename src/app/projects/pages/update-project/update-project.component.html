@@ -1,1 +1,37 @@
-<p>update-project works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" style="max-width: 400px;margin: auto;padding: 2rem">
+  <h2 style="text-align: center;">Update Project</h2>
+
+  <mat-form-field class="full-width">
+    <mat-label>Project name</mat-label>
+    <input matInput formControlName="title" placeholder="Título del proyecto" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Project description</mat-label>
+    <textarea matInput formControlName="description" placeholder="Descripción del proyecto"></textarea>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Start Date</mat-label>
+    <input matInput type="date" formControlName="start_date" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Delivery Date</mat-label>
+    <input matInput type="date" formControlName="delivery_date" />
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>State</mat-label>
+    <mat-select formControlName="state">
+      <mat-option *ngFor="let s of statuses" [value]="s">{{ s }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div style="display: flex; justify-content: space-between; margin-top: 1rem;">
+    <button mat-stroked-button color="warn" type="button" (click)="goBack()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+      Update Project
+    </button>
+  </div>
+</form>

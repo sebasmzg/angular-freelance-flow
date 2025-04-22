@@ -39,13 +39,12 @@ export class CreateProjectComponent implements OnInit {
       const formatted: ProjectRequest = {
         title: formValue.title,
         description: formValue.description,
-        startDate: new Date(formValue.startDate),
-        deliveryDate: new Date(formValue.deliveryDate),
+        start_date: new Date(formValue.startDate),
+        delivery_date: new Date(formValue.deliveryDate),
         state: formValue.state,
         userId: Number(userId)
       };
 
-      console.log('--------data creación----------',formatted);
       this.projectService.createProject(formatted).subscribe({
         next: () => this.router.navigate(['/projects']),
         error: (err: unknown) => console.error(err)

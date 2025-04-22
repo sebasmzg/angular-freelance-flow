@@ -25,8 +25,8 @@ export class ProjectsService {
     const body = {
       title: project.title,
       description: project.description,
-      start_date: this.formatDate(project.startDate),
-      delivery_date: this.formatDate(project.deliveryDate),
+      start_date: this.formatDate(project.start_date),
+      delivery_date: this.formatDate(project.delivery_date),
       state: project.state,
       userId: project.userId
     }
@@ -37,15 +37,16 @@ export class ProjectsService {
     return this.http.get<ProjectResponse>(`${this.baseUrl}/get/${id}`);
   }
 
-  updateProject(id: number, project: ProjectRequest): Observable<ProjectResponse> {
+  updateProject(id: number, project: ProjectRequest): Observable<String> {
     const body = {
       title: project.title,
       description: project.description,
-      startDate: this.formatDate(project.startDate),
-      deliveryDate: this.formatDate(project.deliveryDate),
+      start_date: this.formatDate(project.start_date),
+      delivery_date: this.formatDate(project.delivery_date),
       state: project.state
     }
-    return this.http.put<ProjectResponse>(`${this.baseUrl}/update/${id}`, body);
+
+    return this.http.put<String>(`${this.baseUrl}/update/${id}`, body);
   }
 
   deleteProject(id: number): Observable<void> {
