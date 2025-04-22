@@ -11,6 +11,8 @@ import { MatFormField, MatInputModule, MatLabel } from '@angular/material/input'
 import { MatButtonModule } from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import { UpdateProjectComponent } from './pages/update-project/update-project.component';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { UpdateProjectComponent } from './pages/update-project/update-project.co
     MatInputModule,
     MatButtonModule,
     MatLabel,
-    MatSelectModule
+    MatSelectModule,
+    MatListModule,
+    MatIconModule
   ]
 })
 export class ProjectsModule { }
