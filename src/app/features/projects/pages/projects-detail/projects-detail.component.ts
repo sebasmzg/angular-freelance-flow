@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {ProjectsService} from '../../../core/services/projects/projects.service';
-import {ProjectResponse} from '../../../shared/models/projects.model';
+
 import {MatDialog} from '@angular/material/dialog';
-import {ConfirmDialogComponent} from '../../../shared/components/confirm-dialog/confirm-dialog.component';
-import { FilesService } from '../../../core/services/files/files.service';
-import { FileResponse } from '../../../shared/models/files.models';
+import {ProjectResponse} from '../../../../shared/models/projects.model';
+import {FileResponse} from '../../../../shared/models/files.models';
+import {FilesService} from '../../../../core/services/files/files.service';
+import {ProjectsService} from '../../../../core/services/projects/projects.service';
+import {ConfirmDialogComponent} from '../../../../shared/components/confirm-dialog/confirm-dialog.component';
+
 
 @Component({
   selector: 'app-projects-detail',

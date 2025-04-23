@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from '../../../core/services/auth/auth.service';
 import {Router} from '@angular/router';
+import {AuthService} from '../../../../core/services/auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -37,7 +37,7 @@ export class RegisterComponent {
           this.router.navigate(['/auth/login']);
         }, 2000);
       },
-      error: (err)=>{
+      error: (err: unknown)=>{
         this.error = 'Registration failed. Please try again.';
       }
     })

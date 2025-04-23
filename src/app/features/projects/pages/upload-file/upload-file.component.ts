@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FilesService} from '../../../core/services/files/files.service';
+import {FilesService} from '../../../../core/services/files/files.service';
 import {lastValueFrom} from 'rxjs';
 
 @Component({

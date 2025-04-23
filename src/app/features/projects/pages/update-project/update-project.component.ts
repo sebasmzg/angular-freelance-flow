@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ProjectsService } from '../../../core/services/projects/projects.service';
-import { ProjectRequest, Status } from '../../../shared/models/projects.model';
+import { ProjectsService } from '../../../../core/services/projects/projects.service';
+import { ProjectRequest, Status } from '../../../../shared/models/projects.model';
 
 @Component({
   selector: 'app-update-project',

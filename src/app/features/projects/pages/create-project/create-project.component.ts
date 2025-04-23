@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {ProjectRequest, Status} from '../../../shared/models/projects.model';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProjectsService } from '../../../core/services/projects/projects.service';
-import { AuthService } from '../../../core/services/auth/auth.service';
+import {ProjectRequest, Status} from '../../../../shared/models/projects.model';
+import {ProjectsService} from '../../../../core/services/projects/projects.service';
+import {AuthService} from '../../../../core/services/auth/auth.service';
+
 
 @Component({
   selector: 'app-create-project',
