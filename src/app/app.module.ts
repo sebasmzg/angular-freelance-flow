@@ -15,6 +15,7 @@ import { FilesService } from './core/services/files/files.service';
 import { AuthModule } from './features/auth/auth.module';
 import { HomeComponent } from './features/home/pages/home/home.component';
 import {RouterOutlet} from '@angular/router';
+import {MatButton} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {RouterOutlet} from '@angular/router';
     AuthModule,
     ProjectsModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButton
   ],
   providers: [
     {

@@ -1,0 +1,30 @@
+@use '../../../../styles/palette' as *;
+
+.sidenav-header {
+  background-color: $color-primary;
+  color: white;
+  padding: 16px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+mat-nav-list a {
+  color: $color-text !important;
+  font-weight: 500;
+
+  &.active {
+    background-color: $color-primary-light !important;
+    color: $color-text !important;
+  }
+
+  mat-icon {
+    margin-right: 8px;
+  }
+}
+
+
+.app-sidenav {
+  width: 240px;
+  background-color: white;
+  border-right: 1px solid #e0e0e0;
+}

@@ -1,4 +1,4 @@
- <div>
+<div class="container">
   <div *ngIf="project">
     <h2>{{ project.title }}</h2>
     <p>{{ project.description }}</p>
@@ -6,32 +6,36 @@
     <p>Dead line: {{ project.delivery_date | date:'yyyy-MM-dd' }}</p>
     <p>Status: {{ project.state }}</p>
     <p>Created at: {{ project.created_at | date: 'yyyy-MM-dd' }}</p>
-  </div>
-  <div style="margin-top: 2rem">
-    <button mat-raised-button color="primary" [routerLink]="['/projects', project?.id, 'update']">
-      Update
-    </button>
-    <button mat-raised-button color="warn" (click)="onDeleteProject()">
-      Delete
-    </button>
-  </div>
-</div>
-<div>
-  <button mat-raised-button color="primary" [routerLink]="['/projects', project?.id, 'files']">
-    Subir nuevo archivo
-  </button>
-</div>
-<section *ngIf="files?.length">
-  <h3>Archivos asociados</h3>
-  <mat-list>
-    <mat-list-item *ngFor="let file of files">
-      <div class="file-info">
-        <span>{{ file.filename }}</span>
-      </div>
-      <button mat-icon-button color="warn" (click)="onDeleteFile(file.id)">
-        <mat-icon>delete</mat-icon>
+
+    <div class="actions">
+      <button mat-raised-button color="primary" [routerLink]="['/projects', project.id, 'update']">
+        Update
       </button>
-    </mat-list-item>
-  </mat-list>
-</section>
-<p *ngIf="files && files.length === 0">Este proyecto no tiene archivos aún.</p>
+      <button mat-raised-button color="warn" (click)="onDeleteProject()">
+        Delete
+      </button>
+    </div>
+  </div>
+
+  <div class="file-actions">
+    <button mat-raised-button color="primary" [routerLink]="['/projects', project?.id, 'files']">
+      Subir nuevo archivo
+    </button>
+  </div>
+
+  <section *ngIf="files?.length" class="file-section">
+    <h3>Archivos asociados</h3>
+    <mat-list>
+      <mat-list-item *ngFor="let file of files">
+        <div class="file-info">{{ file.filename }}</div>
+        <button mat-icon-button color="warn" (click)="onDeleteFile(file.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </section>
+
+  <p *ngIf="files && files.length === 0" class="no-files">
+    Este proyecto no tiene archivos aún.
+  </p>
+</div>
