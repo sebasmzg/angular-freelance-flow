@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   register(name: string, email: string, password: string): Observable<{ message: string }> {
-    return this.http.post<{ message: string }>(`${this.baseUrl}/register`, { name, email, password });
+    return this.http.post<{ message: string }>(`${enviroment.apiUrl}/register`, { name, email, password });
   }
 
   private saveToken(token: string){

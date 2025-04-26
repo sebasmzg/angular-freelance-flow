@@ -32,7 +32,7 @@ export class LoginComponent {
       next: (res: unknown)=>{
         this.router.navigate(['/projects']);
       },
-      error: (err)=>{
+      error: (err:unknown)=>{
         this.error = 'Invalid email or password';
       }
     })
